@@ -14,6 +14,7 @@ const ApiComponent = () => {
         return response.json(); 
       })
       .then(data => {
+        console.log(data)
         setData(data);
         setLoading(false);
       })
