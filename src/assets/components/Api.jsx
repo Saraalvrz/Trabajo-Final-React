@@ -1,46 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const ApiComponent = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products') 
-      .then(response => {
+const ApiComponent = async () => {
+    console.log('Haciendo la solicitud a la API'); // Agrega esta línea
+    try {
+        const response = await fetch('https://api.escuelajs.co/api/v1/products');
         if (!response.ok) {
-          throw new Error('Error al obtener los datos');
+            throw new Error(`Error al obtener productos: ${response.status}`);
         }
-        return response.json(); 
-      })
-      .then(data => {
-        console.log(data)
-        setData(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message); 
-        setLoading(false); 
-      });
-  }, []); 
-  if (loading) {
-    return <p>Cargando...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
-  return (
-    <div>
-      <h1>Productos</h1>
-      <ul>
-        {data && data.map(product => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
+        const data = await response.json();
+        console.log(data); // Verifica la respuesta de la API
+        return data; 
+    } catch (error) {
+        console.error('Error al obtener productos:', error);
+        return []; 
+    }
 };
 
 export default ApiComponent;
