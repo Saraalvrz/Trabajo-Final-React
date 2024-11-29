@@ -7,7 +7,6 @@ const Home = () => {
 
     useEffect(() => {
         const loadProducts = async () => {
-            console.log('Llamando a ApiComponent...');
             const data = await ApiComponent();
             setProducts(data);
         };
