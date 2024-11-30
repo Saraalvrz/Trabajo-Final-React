@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar  from './assets/layouts/navbar';
 import Home from './assets/pages/home/home';
-import Products from './assets/pages/products/Products';
-import Men from './assets/pages/byCategory/Men';
-import Women from './assets/pages/byCategory/Women';
-import Accesories from './assets/pages/byCategory/Accesories';
+import Products from './assets/pages/products/products';
+import Shoes from './assets/pages/byCategory/Shoes';
+import Clothing from './assets/pages/byCategory/Clothing';
+import Miscellaneous from './assets/pages/byCategory/Miscellaneous';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 
   return (
@@ -15,9 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={< Home />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/byCategory/Men" element={<Men />} />
-            <Route path="/byCategory/Women" element={<Women />} />
-            <Route path="/byCategory/Accesories" element={<Accesories />} />
+            <Route path="/byCategory/Shoes" element={<Shoes />} />
+            <Route path="/byCategory/Clothing" element={<Clothing />} />
+            <Route path="/byCategory/Miscellaneous" element={<Miscellaneous />} />
           </Routes>
       </BrowserRouter>
 

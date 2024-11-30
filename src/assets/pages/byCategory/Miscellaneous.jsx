@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../../layouts/footer';
 
-const Accesories = () => {
+const Miscellaneous = () => {
   return (
       <div>
-        <h1>Accesorios</h1>
+        <h1>Variedades</h1>
         <Footer />
       </div>
   );
 };
 
-export default Accesories;
+export default Miscellaneous;

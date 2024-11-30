@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../../layouts/footer';
 
-const Men = () => {
+const Clothing = () => {
     return (
         <>
-          <h1>Men's Category</h1>
+          <h1>Ropa</h1>
           <Footer />
         </>
       );
 };
 
-export default Men;
+export default Clothing;
