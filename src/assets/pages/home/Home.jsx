@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../../layouts/footer';
-import ApiComponent from '../../components/Api'
+import ApiComponent from '../../components/Api';
+import './Home.css';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -17,23 +18,21 @@ const Home = () => {
         <div>
             <main>
                 <h1>Bienvenido a Maxfit</h1>
-                <div>
-                    <h2>Productos Destacados</h2>
+                <h2>Productos Destacados</h2>
+                <div className="products-container">
                     {products.map((product) => (
-                        <div key={product.id}>
+                        <div key={product.id} className="product-card">
                             <img src={product.images[0]} alt={product.title} />
-                            <h2>{product.title}</h2>
-                            <p>{product.description}</p>
-                            <p>{product.price} USD</p>
+                            <div className="product-info">
+                                <h2 className="product-title">{product.title}</h2>
+                            </div>
                         </div>
                     ))}
                 </div>
             </main>
-
-
             <Footer />
         </div>
-    )
+    );
 }
 
-export default Home;    
+export default Home;

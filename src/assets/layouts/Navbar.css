@@ -1,0 +1,10 @@
+.lista{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.lista Link{
+    color: white;
+    text-decoration: none;
+}

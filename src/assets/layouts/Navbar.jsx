@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import './Navbar.css'
 
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,19 +12,19 @@ const Navbar = () => {
     return (
         <>
             <nav>
-                <ul>
-                    <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/Products">Productos</Link></li>
-                    <li>
+                <ul className='lista'>
+                    <Link to="/">Inicio</Link>
+                    <Link to="/Products">Productos</Link>
+                    
                         <div onClick={toggleDropdown}>Categorías</div>
                         {isDropdownOpen && (
-                            <ul className="">
-                                <li><Link to="/bycategory/Men">Hombre</Link></li>
-                                <li><Link to="/byCategory/Women">Mujer</Link></li>
-                                <li><Link to="/byCategory/accesories">Accesorios</Link></li>
+                            <ul className="secciones">
+                                <Link to="/bycategory/Men">Hombre</Link>
+                                <Link to="/byCategory/Women">Mujer</Link>
+                                <Link to="/byCategory/accesories">Accesorios</Link>
                             </ul>
                         )}
-                    </li>
+                    
                 </ul>
             </nav>
         </>
