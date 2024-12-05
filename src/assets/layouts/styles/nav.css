@@ -22,6 +22,7 @@ ul {
 
 li {
     margin-right: 20px;
+    
 }
 
 .navbar .dropdown-menu {
@@ -38,6 +39,10 @@ li {
     cursor:pointer;
 }
 
+.link{
+    text-decoration: none !important;
+}
+
 .nav-item:hover .dropdown-menu {
     display: block;
 }
@@ -47,3 +52,49 @@ li {
     border-radius: 5px;
 }
 
+
+
+/* Icono del carrito y modal */
+.nav-item.cart-icon {
+    cursor: pointer;
+    padding: 0 10px;
+    position: absolute;
+    top:  1px;
+    right: 2px;
+  }
+  
+  .cart-icon-img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .close-modal {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }

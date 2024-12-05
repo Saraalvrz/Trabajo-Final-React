@@ -4,7 +4,6 @@ import Footer from '../../layouts/footer';
 const Shoes = () => {
     return (
         <>
-          <h1>Zapatos</h1>
           <Footer />
         </>
       );
