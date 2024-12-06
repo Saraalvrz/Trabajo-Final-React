@@ -11,7 +11,7 @@ const Productos = () => {
 
   const alternarDescripcion = (idProducto) => {
     setExpandido(expandido === idProducto ? null : idProducto);
-  }
+  };
 
   const nombresCategorias = {
     Shoes: "Electrónicos",
@@ -21,6 +21,11 @@ const Productos = () => {
 
   const tituloCategoria = nombresCategorias[category] || category;
 
+  const addToCart = (producto) => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(producto);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  };
 
   useEffect(() => {
     const cargarProductos = async () => {
@@ -34,23 +39,23 @@ const Productos = () => {
   return (
     <>
       <div>
-        <h2 className=''>
-          {category ? `Productos de ${tituloCategoria}` : 'Todos los Productos'}
-        </h2>
-        <div className='column mt-5'>
+        <h2>{category ? `Productos de ${tituloCategoria}` : 'Todos los Productos'}</h2>
+        <div className="column mt-5">
           {productos.map((producto) => (
-            <div className='card d-flex' key={producto.id}>
-              <img className='card-img-top img-prod' src={producto.images[0]} alt={producto.title} />
+            <div className="card d-flex" key={producto.id}>
+              <img className="card-img-top img-prod" src={producto.images[0]} alt={producto.title} />
               <div className="card-body">
-                <h2 className='card-title fs-4'>{producto.title}</h2>
+                <h2 className="card-title fs-4">{producto.title}</h2>
                 <p>{producto.price} USD</p>
                 <p className="card-text">
                   {expandido === producto.id ? producto.description : `${producto.description.slice(0, 100)}...`}
-                  <a className='' onClick={() => alternarDescripcion(producto.id)}>
+                  <a onClick={() => alternarDescripcion(producto.id)}>
                     {expandido === producto.id ? "Ver menos" : "Ver más"}
                   </a>
                 </p>
-                <button className='btn btn-dark'>Añadir al carrito</button>
+                <button className="btn btn-dark" onClick={() => addToCart(producto)}>
+                  Añadir al carrito
+                </button>
               </div>
             </div>
           ))}
@@ -59,6 +64,6 @@ const Productos = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default Productos;

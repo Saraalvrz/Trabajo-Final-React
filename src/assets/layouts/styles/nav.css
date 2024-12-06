@@ -71,10 +71,10 @@ li {
   .modal-overlay {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    right: 0;
+    width: 50vw;
+    height: 80vh;
+    background: rgba(82, 76, 76, 0.781);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,10 +87,11 @@ li {
     border-radius: 8px;
     width: 300px;
     text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
   }
   
   .close-modal {
-    background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
